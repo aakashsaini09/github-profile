@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom"
 const Home = () => {
   const navigate = useNavigate();
   const [username, setusername] = useState("")
+  // @ts-ignore
     const [recoilUser, setRecoilUser] = useRecoilState(UserName)
 
     const submitFunction = async() => {
         setRecoilUser(username)
-        console.log("value inside home comp:", recoilUser)
         navigate("/myprofile")
     }
   return (

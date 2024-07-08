@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RepoCard from "./RepoCard";
+import Navbar from "./Navbar";
+import Loading from "./Loading";
 
 const Profile = () => {
     let { username } = useParams();
@@ -45,8 +47,8 @@ const Profile = () => {
     //     topics: string[]; }
   return (
     <>
+    <Navbar/>
        <div className="items-center flex flex-col mb-5 px-5 h-auto bg-gray-500">
-                {/* Page title */}
                 <h1 className="text-4xl font-bold my-5 text-center text-white">
                     {username} GitHub Profile
                 </h1>
@@ -89,8 +91,8 @@ const Profile = () => {
                                 
                                 <div className="blog flex items-center text-white">
                                     <i className="fa-solid fa-link ml-2"></i> 
-                                    <a className="ml-2" target="_blank" href={`${data.blog}`}>
-                                        {data.blog}
+                                    <a className={`ml-2 ${data.blog ? '' : 'cursor-not-allowed'}`} target="_blank" href={`${data.blog}`}>
+                                        {data.blog ? data.blog : "Not Available"}
                                     </a>
                                 </div>
                                 <div className="text-white bg-gray-500 hover:bg-white border-2 border-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mt-7 mb-2">
@@ -114,7 +116,7 @@ const Profile = () => {
                             {data.public_repos > 30 && <a href={`${data.html_url}`} className="btn btn-outline w-full">View all repos</a>}
                         </div>
                     </>
-                ) : (<div>Loading</div>)}
+                ) : (<Loading/>)}
             </div>
     </>
   )

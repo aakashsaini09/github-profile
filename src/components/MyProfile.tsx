@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { UserName } from "../Store/user";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 const MyProfile = () => {
 const name = useRecoilValue(UserName)
 const [userList, setUserList] = useState<null | userListInterface[]>(null)
@@ -27,11 +28,11 @@ interface userListInterface {
 
   return (
     <>
-
+    <h1 className="w-full h-32 text-white font-bold text-2xl text-center flex items-center justify-center">Search Results for: <span className="text-green-500 mx-1">{name}</span></h1>
     <section className="bg-gray-500 px-12">
   <div className="py-8 px-4 mx-auto text-center lg:py-16 lg:px-6">
     {/* <Home/> */}
-     {loading? <div>loading...</div> : <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+     {loading?<Loading/> : <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {userList?.map((user) =>{
         return  <div className="bg-gray-700 text-center text-white min-w-44 min-h-[28rem] rounded-md
          border-2 border-white">
