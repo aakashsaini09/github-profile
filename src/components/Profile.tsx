@@ -45,58 +45,58 @@ const Profile = () => {
     //     topics: string[]; }
   return (
     <>
-       <div className="items-center flex flex-col mb-5 px-5 h-auto">
+       <div className="items-center flex flex-col mb-5 px-5 h-auto bg-gray-500">
                 {/* Page title */}
-                <h1 className="text-4xl font-bold my-5 text-center">
+                <h1 className="text-4xl font-bold my-5 text-center text-white">
                     {username} GitHub Profile
                 </h1>
                 {/* Loader animation data control  */}
                 {data !== null ? (
                     <>
                         {/* Profile Card */}
-                        <div className="card lg:card-side card-bordered border-white flex md:px-5 py-5 w-full md:w-5/12">
+                        <div className="card lg:card-side border-2 border-white rounded-lg flex md:px-5 py-5 w-full md:w-5/12">
                             {/* Card Avatar */}
                             <div className="avatar flex items-center justify-center">
-                                <div className="mb-8 rounded-full w-40 h-40 ">
-                                    <img alt="avatar" src={data?.avatar_url} />
+                                <div className="mb-8 rounded-full w-40 h-40">
+                                    <img alt="avatar" className="rounded-full" src={data?.avatar_url} />
                                 </div>
                             </div>
 
                             {/* Card Body */}
                             <div className="card-body flex items-center p-0 sm:p-5 flex-col">
-                                <h1 className="card-title text-3xl">{data.name ? data.name : username}</h1>
-                                <div className="badges my-1 flex w-full justify-evenly">
+                                <h1 className="card-title text-3xl text-white">{data.name ? data.name : username}</h1>
+                                <div className="badges my-1 flex w-full justify-evenly text-white mt-3">
                                     <div className="badge badge-primary cursor-pointer ">
-                                        <a href={`https://github.com/${username}?tab=repositories`}>
-                                            <b>Repos: {data.public_repos}</b>
+                                        <a href={`https://github.com/${username}?tab=repositories`} target="_blank">
+                                            <b className="bg-pink-400 rounded-full px-2 py-1">Repos: {data.public_repos}</b>
                                         </a>
                                     </div>
                                     <div className="badge badge-secondary cursor-pointer ">
-                                        <a href={`https://github.com/${username}?tab=followers`}>
-                                            <b>Followers {data.followers}</b>
+                                        <a href={`https://github.com/${username}?tab=followers`} target="_blank">
+                                            <b className="bg-purple-600 rounded-full px-2 py-1">Followers {data.followers}</b>
                                         </a>
                                     </div>
                                     <div className="badge badge-accent cursor-pointer">
-                                        <a href={`https://github.com/${username}?tab=following`}>
-                                            <b>Following {data.following}</b>
+                                        <a href={`https://github.com/${username}?tab=following`} target="_blank">
+                                            <b className="bg-green-700 rounded-full px-2 py-1">Following {data.following}</b>
                                         </a>
                                     </div>
                                 </div>
-                                <div className="location mt-3 flex items-center">
-                                    {data.location}
 
-                                    <p className="ml-2 text-xl">{data.location}</p>
+                                <div className="location mt-3 flex items-center text-white">
+                                    <p className="ml-2 text-xl"><i className="fa-solid fa-location-dot mr-2"></i> {data.location}</p>
                                 </div>
-                                <div className="blog flex items-center ">
-                                    {data.blog}
-                                    <a className="ml-2" href={`${data.blog}`}>
+                                
+                                <div className="blog flex items-center text-white">
+                                    <i className="fa-solid fa-link ml-2"></i> 
+                                    <a className="ml-2" target="_blank" href={`${data.blog}`}>
                                         {data.blog}
                                     </a>
                                 </div>
-                                <div className="card-actions">
-                                    <a href={`${data.html_url}`} className="btn btn-outline ">
+                                <div className="text-white bg-gray-500 hover:bg-white border-2 border-white hover:text-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 mt-7 mb-2">
+                                    <a href={`${data.html_url}`} className="btn btn-outline" target="_blank">
                                         {/* <BsGithub className="mr-2 text-lg" /> */}
-                                        View Profile
+                                        <i className="fa-brands fa-github mr-2"></i> View Profile
                                     </a>
                                 </div>
                             </div>
