@@ -48,7 +48,7 @@ const Profile = () => {
   return (
     <>
     <Navbar/>
-       <div className="items-center flex flex-col mb-5 px-5 h-auto bg-gray-500">
+       <div className="items-center flex flex-col mb-5 px-5 h-auto bg-gray-500 min-h-[75vh]">
                 <h1 className="text-4xl font-bold my-5 text-center text-white">
                     {username} GitHub Profile
                 </h1>
