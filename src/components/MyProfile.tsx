@@ -46,10 +46,6 @@ interface userListInterface {
       </div>}
   </div>
 </section>
-        {/* {repos.map((repo) => (
-          <RepoCard key={repo.id} liveDemo={repo.homepage} name={repo.name} description={repo.description} topics={repo.topics} htmlUrl={repo.html_url} language={repo.language}/>
-        ))} */}  
-      {/* </div> */}
 
     </>
   );
